@@ -1,5 +1,3 @@
-prompt("does this work?");
-
 // retrieve html element "app" and assign it to "app"
 const app = document.getElementById("app");
 // retrieve html element "guesses" and assign it to "guessContainer"
@@ -35,9 +33,9 @@ for (let i = 0; i < 10; i++) {
 //   }
 
 //declare number variable "ans" - set to a random number between 1 and 100
-const ans = Math.round(Math.random() * 100);
+const ans = Math.round(Math.random() * 100) + 1;
 // declare amount of guesses allowed variable
-let count = 10;
+let count =  10;
 // updates guess container with the initial guess count
 guessContainer.textContent = count;
 
@@ -56,7 +54,7 @@ setTimeout(() => {
 //compare winning number to inputted number
 function check() {
     // Validate input
-  guess = parseInt(input, 10);
+  guess = parseInt(guess, 10);
   if (isNaN(guess) || guess < 1 || guess > 100) {
     alert("Invalid input. Please enter a number between 1 and 100.");
     askForGuess(); // Recursively ask again
@@ -69,7 +67,7 @@ function check() {
     // calls change background to update the background color of table cells
     changeBG(guess, op);
     // calls next after 500ms if incorrect guess
-    setTimeout(next, 500);
+   setTimeout(next, 500);
   } else {
     // if guess is correct, background of answer is green and user is alerted
     if (guess === ans) {
@@ -116,9 +114,6 @@ function changeBG(num, op) {
     document.getElementById("guess" + num).style.backgroundColor = "limegreen";
   }
 }
-
-
-
 
 
 
@@ -184,45 +179,3 @@ function changeBG(num, op) {
 // while loop to loop over 10 times and check the number of guesses, compare to target number
 // after tested make the number come up as a random math.random * 100 + 1 (?)
 // ex: random number between 1 and 100
-
-
-// Part 1: Requirements
-
-//You will create a simple guessing game. Using window methods, you will give and receive information from the user in order to direct them toward the correct answer in a limited number of guesses.
-
-// Here is a list of requirements for easy reference:
-
-// 1. Create a simple guessing game that pushes users toward the correct answer in some iterative way.(LOOPS!) The game does not need to be practical or complicated.
-
-// 2. Use window object methods to gather input from the user and display information to the user.
-
-// 3. Use DOM manipulation to give a visual indication of the game's progress in some way.
-
-// Part 2: Examples and Hints
-
-// We recommend starting simple, with numbers. Since numbers can be easily compared with conditional logic, alerting the user to the state of their last guess becomes relatively easy.
-// Ex: theoretical number guessing game.
-
-// The answer to your game can be static or dynamic. You can set one answer that is always the answer, regardless of page reloads or other conditions, or you could randomly generate the answer using something like Math.random() and/or a list of set answers.
-
-// The method by which you push your user toward the correct answer can also be unique.
-// Ex: a game that has the user guess a the breed of a cat by showing a blurred picture, which becomes progressively less blurry as the user guesses.
-
-// The game uses DOM manipulation to change the CSS attributes of the picture based on the remaining number of guesses.
-
-// Again, your game does not need to be practical or complicated. You must only show an understanding of how to use the BOM and the DOM to create or manipulate content.
-
-// Part 3: Building the Game
-
-// Once you have an idea in mind, begin building. Remember that this can be a very simple game!
-
-// Along the way, you will encounter an issue with rendering while using alerts and prompts from the window object. These issues come into play due to a concept known as the Event Loop, which is beyond the scope of this module. For now, just understand that having a prompt or alert window open blocks anything from happening on the webpage itself.
-
-// As a temporary workaround, you can delay your prompts and alerts using another window method, setTimeout.
-
-// This is not a requirement. If your program does not work as intended due to the blocking behavior of window.alert and window.prompt, that is okay! You will have the opportunity to better understand this behavior and mitigate it using different tools and techniques in the future.
-
-// Part 4: Completion
-
-// With your game finished, and tested, share your work with a peer. Discuss the differences in your approaches in order to form a better understanding of the variety of techniques available, even for a simple program like this one. Development is equal parts knowledge and creativity!
-
